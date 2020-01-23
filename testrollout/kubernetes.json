@@ -149,7 +149,7 @@
     },
     "strategy": {
       "blueGreen": {
-        "previewService": "democicd",
+        "activeService": "democicd",
         "autoPromotionEnabled": false,
         "previewService": "democicd-preview"
       }

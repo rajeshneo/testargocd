@@ -88,7 +88,7 @@
               },
               {
                 "name": "LOGGER_DRIVER_TYPE",
-                "value": "splunk"
+                "value": "stdout"
               },
               {
                 "name": "SPLUNK_TLS_ENABLED",
@@ -131,7 +131,7 @@
                 }
               }
             ],
-            "image": "028760646564.dkr.ecr.us-east-1.amazonaws.com/top-democicd:rajesh",
+            "image": "rajeshneo/top-democicd:latest",
             "resources": {
               "limits": {
                 "memory": "1024.0Mi",
@@ -143,10 +143,7 @@
               }
             }
           }
-        ],
-        "nodeSelector": {
-          "node_type": "general_purpose"
-        }
+        ]
       }
     }
   },

@@ -1,0 +1,25 @@
+{
+  "kind": "Service",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "democicd",
+    "namespace": "top",
+    "labels": {
+      "name": "democicd"
+    }
+  },
+  "spec": {
+    "selector": {
+      "app": "democicd"
+    },
+    "type": "ClusterIP",
+    "ports" : [
+      {
+        "name" : "rest",
+        "port": 8888,
+        "targetPort": 8888
+      }
+
+    ]
+  }
+}

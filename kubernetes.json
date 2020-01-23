@@ -8,7 +8,7 @@
     "namespace": "top"
   },
   "spec": {
-    "replicas": 1,
+    "replicas": 5,
     "selector": {
       "matchLabels": {
         "app": "democicd"
@@ -141,6 +141,21 @@
                 "memory": "256Mi",
                 "cpu": "0.1"
               }
+            }
+          }
+        ]
+      }
+    },
+    "minReadySeconds": 30,
+    "revisionHistoryLimit": 3,
+    "strategy": {
+      "canary": {
+        "steps": [
+          {
+            "setWeight": 20
+          },
+          {
+            "pause": {
             }
           }
         ]

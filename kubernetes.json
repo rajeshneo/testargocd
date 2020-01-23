@@ -131,7 +131,7 @@
                 }
               }
             ],
-            "image": "rajeshneo/top-democicd:v1",
+            "image": "rajeshneo/top-democicd:latest",
             "resources": {
               "limits": {
                 "memory": "1024.0Mi",

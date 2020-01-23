@@ -1,5 +1,6 @@
 {
   "kind": "Rollout",
+  "apiVersion": "argoproj.io/v1alpha1",
   "metadata": {
     "labels": {
       "name": "democicd"
@@ -146,18 +147,12 @@
         ]
       }
     },
-    "minReadySeconds": 30,
-    "revisionHistoryLimit": 3,
     "strategy": {
       "blueGreen": {
         "previewService": "democicd",
-        "previewReplicaCount": 2,
-        "autoPromotionEnabled": true,
-        "autoPromotionSeconds": 30,
-        "scaleDownDelaySeconds": 30,
-        "scaleDownDelayRevisionLimit": 2
+        "autoPromotionEnabled": false,
+        "previewService": "democicd-preview"
       }
     }
-  },
-  "apiVersion": "argoproj.io/v1alpha1"
+  }
 }

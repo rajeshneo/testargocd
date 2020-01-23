@@ -1,0 +1,25 @@
+{
+  "kind": "Service",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "app2",
+    "namespace": "default",
+    "labels": {
+      "name": "app2"
+    }
+  },
+  "spec": {
+    "selector": {
+      "app": "app2"
+    },
+    "type": "ClusterIP",
+    "ports" : [
+      {
+        "name" : "rest",
+        "port": 8888,
+        "targetPort": 8888
+      }
+
+    ]
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "kind": "Rollout",
+  "apiVersion": "argoproj.io/v1alpha1",
+  "metadata": {
+    "labels": {
+      "name": "app2"
+    },
+    "name": "app2",
+    "namespace": "default"
+  },
+  "spec": {
+    "replicas": 5,
+    "selector": {
+      "matchLabels": {
+        "app": "app2"
+      }
+    },
+    "template": {
+      "metadata": {
+        "labels": {
+          "app": "app2"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "app2",
+            "ports": [
+              {
+                "containerPort": 8888
+              }
+            ],
+            "env": [
+              {
+                "name": "MAN_DEBUG_ENABLED",
+                "value": "false"
+              },
+              {
+                "name": "MON_GROUP",
+                "value": "top"
+              },
+              {
+                "name": "MON_APP",
+                "value": "app2"
+              },
+              {
+                "name": "MON_LOGLEVEL",
+                "value": "5"
+              },
+              {
+                "name": "MON_CONTACT",
+                "value": "rajesh.kumar@verizon.com"
+              },
+              {
+                "name": "DC",
+                "value": "dev-us-east-1"
+              },
+              {
+                "name": "METRICS_ENABLE",
+                "value": "true"
+              },
+              {
+                "name": "METRICS_POLL_INTERVAL_SECS",
+                "value": "5"
+              },
+              {
+                "name": "STATS_ERR_PERIOD",
+                "value": "30"
+              },
+              {
+                "name": "STATS_OUT_PERIOD",
+                "value": "0"
+              },
+              {
+                "name": "STATS_INTERVAL",
+                "value": "30"
+              },
+              {
+                "name": "MON_CORELATIONID",
+                "value": "top/dev/app2"
+              },
+              {
+                "name": "MON_PIPE_ID",
+                "value": "tsx"
+              },
+              {
+                "name": "SPLUNK_URL",
+                "value": "http://traefik-splunk-dev-top.mon-marathon-service.mesos:8088"
+              },
+              {
+                "name": "LOGGER_DRIVER_TYPE",
+                "value": "stdout"
+              },
+              {
+                "name": "SPLUNK_TLS_ENABLED",
+                "value": "false"
+              },
+              {
+                "name": "SPLUNK_TOKEN",
+                "value": "267896AD-4E27-42EE-A79A-1B8B8DFC58E6"
+              },
+              {
+                "name": "SPLUNK_INDEX",
+                "value": "main"
+              },
+              {
+                "name": "MLOG_LOGGING_FORMAT",
+                "value": "json"
+              },
+              {
+                "name": "TS_LOGGER_FORMAT",
+                "value": "json"
+              },
+              {
+                "name": "DKT_LOGGER_DUMP_MSG_STDOUT",
+                "value": "false"
+              },
+              {
+                "name": "HOST",
+                "valueFrom": {
+                  "fieldRef": {
+                    "fieldPath": "spec.nodeName"
+                  }
+                }
+              },
+              {
+                "name": "MESOS_TASK_ID",
+                "valueFrom": {
+                  "fieldRef": {
+                    "fieldPath": "metadata.name"
+                  }
+                }
+              }
+            ],
+            "image": "rajeshneo/top-democicd:latest",
+            "resources": {
+              "limits": {
+                "memory": "1024.0Mi",
+                "cpu": "1.0"
+              },
+              "requests": {
+                "memory": "256Mi",
+                "cpu": "0.1"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "strategy": {
+      "blueGreen": {
+        "activeService": "app2",
+        "autoPromotionEnabled": false,
+        "previewService": "app2-preview"
+      }
+    }
+  }
+}

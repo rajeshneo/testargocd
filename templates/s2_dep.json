@@ -1,0 +1,84 @@
+{
+  "kind": "Rollout",
+  "metadata": {
+    "labels": {
+      "app": "service2"
+    },
+    "name": "service2",
+    "namespace": "istio-test"
+  },
+  "spec": {
+    "replicas": 1,
+    "selector": {
+      "matchLabels": {
+        "app": "service2"
+      }
+    },
+    "template": {
+      "metadata": {
+        "labels": {
+          "app": "service2"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "service2",
+            "imagePullPolicy": "Always",
+            "ports": [
+              {
+                "containerPort": 80
+              }
+            ],
+            "env": [
+              {
+                "name": "SERVICE_NAME",
+                "value": "service2"
+              },
+              {
+                "name": "VERSION",
+                "value": "v1"
+              }
+            ],
+            "image": "rajeshneo/bgservices:service2",
+            "resources": {
+              "limits": {
+                "memory": "128Mi"
+              },
+              "requests": {
+                "memory": "128Mi"
+              }
+            }
+          }
+        ],
+        "strategy": {
+          "canary": {
+             "steps": [
+                {
+                   "setWeight": 5
+                },
+                {
+                   "pause": {
+                      "duration": "10m"
+                   }
+                }
+             ],
+             "canaryService": "service2-canary",
+             "stableService": "service2-stable",
+             "trafficRouting": {
+                "istio": {
+                   "virtualService": {
+                      "name": "service2-vsvc",
+                      "routes": [
+                         "primary"
+                      ]
+                   }
+                }
+             }
+          }
+       }
+      }
+    }
+  },
+  "apiVersion": "argoproj.io/v1alpha1"
+}

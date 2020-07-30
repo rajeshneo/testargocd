@@ -1,0 +1,54 @@
+{
+  "kind": "Deployment",
+  "metadata": {
+    "labels": {
+      "name": "service1"
+    },
+    "name": "service1",
+    "namespace": "istio-test"
+  },
+  "spec": {
+    "replicas": 1,
+    "selector": {
+      "matchLabels": {
+        "app": "service1"
+      }
+    },
+    "template": {
+      "metadata": {
+        "labels": {
+          "app": "service1"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "service1",
+            "imagePullPolicy": "Always",
+            "ports": [
+              {
+                "containerPort": 80
+              }
+            ],
+            "env": [
+              {
+                "name": "ENV",
+                "value": "dummy"
+              }
+            ],
+            "image": "rajeshneo/bgservices:service1",
+            "resources": {
+              "limits": {
+                "memory": "128Mi"
+              },
+              "requests": {
+                "memory": "128Mi"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "apiVersion": "apps/v1"
+}

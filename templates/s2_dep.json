@@ -50,35 +50,36 @@
               }
             }
           }
-        ],
-        "strategy": {
-          "canary": {
-             "steps": [
-                {
-                   "setWeight": 5
-                },
-                {
-                   "pause": {
-                      "duration": "10m"
-                   }
-                }
-             ],
-             "canaryService": "service2-canary",
-             "stableService": "service2-stable",
-             "trafficRouting": {
-                "istio": {
-                   "virtualService": {
-                      "name": "service2-vsvc",
-                      "routes": [
-                         "primary"
-                      ]
-                   }
-                }
-             }
-          }
-       }
+        ]
+
       }
     }
   },
+  "strategy": {
+    "canary": {
+       "steps": [
+          {
+             "setWeight": 5
+          },
+          {
+             "pause": {
+                "duration": "10m"
+             }
+          }
+       ],
+       "canaryService": "service2-canary",
+       "stableService": "service2-stable",
+       "trafficRouting": {
+          "istio": {
+             "virtualService": {
+                "name": "service2-vsvc",
+                "routes": [
+                   "primary"
+                ]
+             }
+          }
+       }
+    }
+ },
   "apiVersion": "argoproj.io/v1alpha1"
 }

@@ -2,10 +2,10 @@
   "kind": "Service",
   "apiVersion": "v1",
   "metadata": {
-    "name": "service2-stable",
+    "name": "service2",
     "namespace": "istio-test",
     "labels": {
-      "app": "service2-stable"
+      "app": "service2"
     }
   },
   "spec": {

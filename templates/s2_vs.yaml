@@ -9,8 +9,8 @@ spec:
   - route:
     name: primary
     - destination:
-        host: stable-svc
+        host: service2
       weight: 100
     - destination:
-        host: canary-svc
+        host: service2-canary
       weight: 0

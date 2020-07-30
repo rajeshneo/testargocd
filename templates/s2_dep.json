@@ -67,7 +67,7 @@
             }
          ],
          "canaryService": "service2-canary",
-         "stableService": "service2-stable",
+         "stableService": "service2",
          "trafficRouting": {
             "istio": {
                "virtualService": {

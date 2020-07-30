@@ -58,11 +58,11 @@
       "canary": {
          "steps": [
             {
-               "setWeight": 5
+               "setWeight": 50
             },
             {
                "pause": {
-                  "duration": "10m"
+                  "duration": "5m"
                }
             }
          ],

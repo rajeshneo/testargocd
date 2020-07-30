@@ -6,11 +6,11 @@ spec:
   hosts:
   - service2.istio-test.svc.cluster.local
   http:
-  - route:
-    name: primary
-    - destination:
-        host: service2
-      weight: 100
-    - destination:
-        host: service2-canary
-      weight: 0
+  - name: primary
+    route:
+      - destination:
+          host: service2
+        weight: 100
+      - destination:
+          host: service2-canary
+        weight: 0

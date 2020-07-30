@@ -40,7 +40,7 @@
                 "value": "v3"
               }
             ],
-            "image": "rajeshneo/bgservices:service2",
+            "image": "rajeshneo/bgservices:service22",
             "resources": {
               "limits": {
                 "memory": "128Mi"

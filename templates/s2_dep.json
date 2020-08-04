@@ -67,6 +67,7 @@
          ],
          "canaryService": "service2-canary",
          "stableService": "service2",
+         "maxSurge": "10%",
          "trafficRouting": {
             "istio": {
                "virtualService": {

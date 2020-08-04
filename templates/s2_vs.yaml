@@ -4,7 +4,7 @@ metadata:
   name: service2-vsvc
 spec:
   hosts:
-  - service2.istio-test.svc.cluster.local
+  - service2
   http:
   - name: primary
     route:

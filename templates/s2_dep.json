@@ -37,7 +37,7 @@
               },
               {
                 "name": "VERSION",
-                "value": "v4"
+                "value": "v1"
               }
             ],
             "image": "rajeshneo/bgservices:service2",
@@ -51,7 +51,6 @@
             }
           }
         ]
-
       }
     },
     "strategy": {
@@ -81,6 +80,5 @@
       }
    }
   },
-
   "apiVersion": "argoproj.io/v1alpha1"
 }

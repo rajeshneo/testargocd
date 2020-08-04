@@ -37,7 +37,7 @@
               },
               {
                 "name": "VERSION",
-                "value": "v2"
+                "value": "v3"
               }
             ],
             "image": "rajeshneo/bgservices:service2",

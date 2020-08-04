@@ -37,7 +37,7 @@
               },
               {
                 "name": "VERSION",
-                "value": "v2"
+                "value": "v3"
               }
             ],
             "image": "rajeshneo/bgservices:service2",
@@ -67,7 +67,6 @@
          ],
          "canaryService": "service2-canary",
          "stableService": "service2",
-         "maxSurge": "10%",
          "trafficRouting": {
             "istio": {
                "virtualService": {

@@ -5,7 +5,7 @@ metadata:
   title: testargocd Service 
   description: testargocd Backstage catalog item.
   annotations:
-    github.com/project-slug: https://github.com/rajeshneo/testargocd
+    github.com/project-slug: rajeshneo/testargocd
 spec:
   type: service
   owner: user:rajesh

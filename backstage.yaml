@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: testargocd 
+  title: testargocd Service 
+  description: testargocd Backstage catalog item.
+  annotations:
+    github.com/project-slug: https://github.com/rajeshneo/testargocd
+spec:
+  type: service
+  owner: user:rajesh
+  lifecycle: experimental
